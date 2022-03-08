@@ -1,0 +1,22 @@
+{
+  "name": "sdk-js-server-side",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waypost-io/sdk-javascript-server-side.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waypost-io/sdk-javascript-server-side/issues"
+  },
+  "homepage": "https://github.com/waypost-io/sdk-javascript-server-side#readme",
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
+}

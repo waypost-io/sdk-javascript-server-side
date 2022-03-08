@@ -1,1 +1,1 @@
-# sdk-javascript-server-side
+# Waypost's Server-Side SDK for Javascript
