@@ -16,22 +16,16 @@ class Client {
     this.context = contextObj;
   }
 
-  async startPolling() {
-    while (true) {
-      await this.poll();
-      await this.delay();
-    }
-  }
-
-  async delay() {
-    await new Promise(resolve => setTimeout(resolve, this.config.pollingInterval));
-  }
-
-  async poll() {
-    const res = await axios.get(`${this.config.api_address}/api/flags?sdk_key=${this.config.sdkKey}`);
-    res.data.forEach(flag => {
+  setFeatureFlags(data) {
+    this.featureFlags = {};
+    data.forEach(flag => {
       this.featureFlags[flag.name] = flag;
     });
+  }
+
+  async getFlagData() {
+    const res = await axios.get(`${this.config.api_address}/api/flags?sdk_key=${this.config.sdkKey}`);
+    this.setFeatureFlags(res.data);
   }
 
   // defaultVal is a boolean
@@ -49,7 +43,7 @@ class Client {
       return featureData.status;
     }
 
-    return userInRollout(this.context.userId, featureData['percent_on']);
+    return userInRollout(this.context.userId, featureData['percentage_split']);
   }
 }
 

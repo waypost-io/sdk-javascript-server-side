@@ -1,19 +1,16 @@
 const Client = require("./Client");
 
 class Config {
-  constructor(sdkKey, api_address, pollingInterval) {
+  constructor(sdkKey, api_address) {
     this.sdkKey = sdkKey;
     this.api_address = api_address;
-    this.pollingInterval = pollingInterval; // in milliseconds
-    this.client = undefined;
   }
 
-  connect() {
+  async connect() {
     const client = new Client(this);
-    this.client = client;
-    client.startPolling();
-    return this;
+    await client.getFlagData();
+    return client;
   }
 }
 
-module.exports = Config
+module.exports = Config;
