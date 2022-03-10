@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "Config.js",
+  "exports": "./Config.js",
   "scripts": {
     "test": "node test.js"
   },
