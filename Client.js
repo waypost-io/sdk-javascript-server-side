@@ -1,4 +1,5 @@
 const axios = require('axios');
+const EventSource = require('eventsource');
 const userInRollout = require('./userIdHash');
 
 class Client {
@@ -26,6 +27,14 @@ class Client {
   async getFlagData() {
     const res = await axios.get(`${this.config.api_address}/api/flags?sdk_key=${this.config.sdkKey}`);
     this.setFeatureFlags(res.data);
+  }
+
+  listenForEvents() {
+    const eventSource = new EventSource(`${this.config.api_address}/api/stream`);
+    eventSource.onmessage = e => {
+      // Update the feature flags
+      this.setFeatureFlags(JSON.parse(e.data));
+    }
   }
 
   // defaultVal is a boolean

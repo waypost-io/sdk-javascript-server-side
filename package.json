@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/waypost-io/sdk-javascript-server-side#readme",
   "dependencies": {
-    "axios": "^0.26.0"
+    "axios": "^0.26.0",
+    "eventsource": "^2.0.0"
   }
 }
