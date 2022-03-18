@@ -1,4 +1,4 @@
-Config = require('./Config');
+Config = require('./lib/Config');
 
 let sdkClient;
 // Testing "Test flag 2", which is ON and has percentage 50% (based on user hash).
