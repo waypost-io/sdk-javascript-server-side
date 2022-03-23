@@ -1,6 +1,6 @@
 # Waypost's Server-Side SDK for Javascript
 ## Setup
-1. Install via `npm install waypost-sdk-js-server`
+1. Install via `npm install waypost-sdk-js-server` (https://www.npmjs.com/package/waypost-sdk-js-server)
 2. Set up a middleware before your routes that imports the `waypost-sdk-js-server` package, and configures the SDK client (follow the following steps):
 3. In the `Config` constructor, the first argument is your SDK key (get this from the Waypost feature flag manager interface). The second argument is the address of Waypost's flag provider service.
 Chain the `connect()` method immediately, which sets up the connection to the Waypost flag provider service, and returns the SDK Client containing the feature flag data. Note that the `connect()` method is async, so you will need to `await` it.
